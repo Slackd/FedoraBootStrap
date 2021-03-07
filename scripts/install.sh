@@ -37,6 +37,7 @@ sudo dnf update -y
 
 # Base and Devel Packages
 sudo dnf groupinstall "Development Tools" -y
+sudo dnf group install "C Development Tools and Libraries" -y
 sudo dnf install ninja-build flex bison libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
 # Basic Terminal Programs
@@ -56,7 +57,7 @@ sudo dnf install brave-browser code -y
 
 # Flatpak Setup
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub com.bitwarden.desktop org.qbittorrent.qBittorrent \ 
+flatpak install flathub org.qbittorrent.qBittorrent \ 
     com.spotify.Client com.github.micahflee.torbrowser-launcher org.telegram.desktop \
     com.obsproject.Studio md.obsidian.Obsidian org.signal.Signal -y
 
