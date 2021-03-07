@@ -37,11 +37,11 @@ sudo dnf update -y
 
 # Base and Devel Packages
 sudo dnf groupinstall "Development Tools" -y
-sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
+sudo dnf install ninja-build flex bison libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
 # Basic Terminal Programs
 sudo dnf install git curl wget aria2 zsh -y
-sudo dnf install neofetch cowsay fortune-mod cmatrix -y
+sudo dnf install neofetch cowsay htop fortune-mod cmatrix -y
 
 # Media Codecs
 # Ref : https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
@@ -49,7 +49,7 @@ sudo dnf install neofetch cowsay fortune-mod cmatrix -y
 sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel -y
 sudo dnf install lame\* --exclude=lame-devel -y
 sudo dnf group upgrade --with-optional Multimedia -y
-sudo dnf install unrar unace unzip p7zip vlc smplayer -y
+sudo dnf install unrar unace unzip p7zip vlc smplayer discord -y
 
 # Brave and Code 
 sudo dnf install brave-browser code -y
@@ -57,7 +57,7 @@ sudo dnf install brave-browser code -y
 # Flatpak Setup
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.bitwarden.desktop org.qbittorrent.qBittorrent \ 
-    com.spotify.Client com.discordapp.Discord com.github.micahflee.torbrowser-launcher org.telegram.desktop \
+    com.spotify.Client com.github.micahflee.torbrowser-launcher org.telegram.desktop \
     com.obsproject.Studio md.obsidian.Obsidian org.signal.Signal -y
 
 
@@ -90,6 +90,7 @@ unzip 'Inter-3.15.zip'
 find . -type f \( -name "*.ttf" -o -name "*.otf" \) | xargs -I '{}' mv -f {} /home/sam/.local/share/fonts
 cd .. && rm -rf tmp
 fc-cache -fv
+clear
 
 # Icon Theme
 wget -qO- https://git.io/papirus-icon-theme-install | sh
