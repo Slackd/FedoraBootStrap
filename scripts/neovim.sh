@@ -10,7 +10,7 @@ sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pk
 # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
 # intellisense, then please comment out this line.
 curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -
-#sudo dnf install nodejs
+sudo dnf install nodejs -y
 
 # Get sources
 mkdir neo_tmp && cd neo_tmp
@@ -44,7 +44,12 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Check installation
 
+clear
 echo 'Installed Successfully. Please start with "nvim" and then wait for modules to install...'
+sleep 5
+clear
+
+echo 'Installed:-'
 nvim -v
 node -v
 npm -v
