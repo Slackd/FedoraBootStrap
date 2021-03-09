@@ -5,8 +5,7 @@
 # V1 - TODO - Plan to conditionally check for distro and adapt the script.
 
 # Build prerequisites
-sudo dnf install ninja-build libtool autoconf automake \
-    cmake gcc gcc-c++ make pkgconfig unzip patch -y
+sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
 # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
 # intellisense, then please comment out this line.
@@ -36,7 +35,7 @@ pip3 install neovim
 
 # Clone my dotfiles and copy over the neovim configs
 git clone https://github.com/Slackd/dotfiles.git
-cp -rf dotfiles/.config/nvim /home/sam/.config/
+cp -rf dotfiles/nvim /home/sam/.config/
 cd ..
 
 # Install vim-plug and set up the directories
@@ -49,9 +48,5 @@ echo 'Installed Successfully. Please start with "nvim" and then wait for modules
 nvim -v
 node -v
 npm -v
-
-
-
-
 
 

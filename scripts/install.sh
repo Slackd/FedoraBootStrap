@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 
 # This is a complete system setup script for Fedora 
 # as I would set it up on bare metal setup.
@@ -57,10 +57,7 @@ sudo dnf install brave-browser code -y
 
 # Flatpak Setup
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak install flathub org.qbittorrent.qBittorrent \ 
-    com.spotify.Client com.github.micahflee.torbrowser-launcher org.telegram.desktop \
-    com.obsproject.Studio md.obsidian.Obsidian org.signal.Signal -y
-
+flatpak install flathub org.qbittorrent.qBittorrent com.spotify.Client com.github.micahflee.torbrowser-launcher org.telegram.desktop com.obsproject.Studio md.obsidian.Obsidian org.signal.Signal -y
 
 
 ###########################################
@@ -75,7 +72,7 @@ sudo dnf install materia-gtk-theme gnome-tweak-tool -y
 
 # Fonts
 mkdir -p tmp && cd tmp
-wget -c ../fonts.txt
+wget -i ../fonts.txt
 mkdir -p /home/sam/.local/share/fonts
 
 unzip IBMPlexMono.zip
