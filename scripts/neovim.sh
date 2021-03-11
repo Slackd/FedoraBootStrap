@@ -1,16 +1,41 @@
 #!/bin/bash
 
 # Referred from - https://github.com/neovim/neovim/wiki/Building-Neovim
+# NodeJS and NPM latest versions are required for CoC. These are not available in the default
+# repos. Therefore we are getting the packages from : https://github.com/nodesource/distributions
 # V0 - Initial Launch which supports Fedora.
-# V1 - TODO - Plan to conditionally check for distro and adapt the script.
+# V1 - Implement distro check. Currently support only Ubuntu and Fedora.
+# V2 - TODO - Other distros and maybe install the vim plug sets automatically.
 
-# Build prerequisites
-sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
+# Current Version : V1
 
-# NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
-# intellisense, then please comment out this line.
-curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -
-sudo dnf install nodejs -y
+# Check for which OS is running
+# If Fedora is detected. Commands to follow:
+
+if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then 
+    echo "You're Running Fedora"
+
+    # Build prerequisites
+    sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
+
+    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
+    # intellisense, then please comment out this line.
+    curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -
+    sudo dnf install nodejs -y
+fi
+
+if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Ubuntu' ]]; then 
+    echo "You're Running Ubuntu"
+
+    # Build prerequisites
+    sudo apt install install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip -y
+
+    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
+    # intellisense, then please comment out this line.
+    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
+    sudo apt install nodejs -y
+fi
+
 
 # Get sources
 mkdir neo_tmp && cd neo_tmp
@@ -49,9 +74,9 @@ echo 'Installed Successfully. Please start with "nvim" and then wait for modules
 sleep 5
 clear
 
-echo 'Installed:-'
+echo "Checking Installation:"
+echo "Build Files have been preserved, for future use."
 nvim -v
 node -v
 npm -v
-
 
