@@ -110,4 +110,5 @@ elif [ $choice -eq 2 ]; then
 
 elif [ $choice -eq 3 ]; then
     echo "Quitting..."
+    exit
 fi
