@@ -80,3 +80,6 @@ nvim -v
 node -v
 npm -v
 
+# Clear Screen Output
+sleep 5
+clear
