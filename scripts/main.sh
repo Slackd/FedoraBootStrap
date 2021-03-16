@@ -32,7 +32,7 @@ echo "7) Intall Fonts: "
 echo "8) Install Themes & Icons: "
 echo "9) All Packages / Run All Scripts: "
 echo " "
-echo "10) Quit: "
+echo "10) Clean and Exit: "
 echo " "
  
 read -p "Enter Which Phase you want to Install: " choice
@@ -127,6 +127,9 @@ fi
 
 # Quit Program #
 if [[ $choice -eq 10 ]]; then
+    clear
+    rm -rf modules/neo_tmp
+    rm -rf modules/font_tmp
     clear
     echo "Thanks! Bye..!"
     exit
