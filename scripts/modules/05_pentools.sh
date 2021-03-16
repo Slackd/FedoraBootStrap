@@ -18,6 +18,7 @@ sudo dnf remove security-menus -y
 # John the Ripper
 # --TODO --
 
+# Compile process is long, better refer to - https://github.com/openwall/john/blob/bleeding-jumbo/doc/INSTALL-FEDORA
 
 # Clear Screen Output
 clear

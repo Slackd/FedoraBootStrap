@@ -10,8 +10,8 @@ sudo dnf install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-open
 sudo dnf install lame\* --exclude=lame-devel -y
 sudo dnf group upgrade --with-optional Multimedia -y
 
-# Compression & De-compression Libraries
-sudo dnf install unrar unace unzip p7zip vlc smplayer discord -y
+# Compression & De-compression Libraries, ffmpeg and media
+sudo dnf install unrar unace unzip p7zip vlc smplayer discord ffmpeg -y
 
 # Brave Browser and Code 
 sudo dnf install brave-browser code -y
