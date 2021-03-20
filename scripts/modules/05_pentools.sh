@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo dnf update -y
+sudo dnf group install "Security Lab" -yy
 sudo dnf install hydra hydra-frontend gobuster hashcat scalpel foremost steghide whois aircrack-ng traceroute wireshark nmap -y
 
 mkdir -p /home/sam/SecTools

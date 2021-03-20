@@ -24,6 +24,8 @@ find . -type f \( -name "*.ttf" -o -name "*.otf" \) | xargs -I '{}' mv -f {} /ho
 cd .. && rm -rf tmp
 fc-cache -fv
 
+sudo dnf install lsd -y
+
 # Clear Screen Output
 sleep 5
 clear
