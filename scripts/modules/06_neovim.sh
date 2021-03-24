@@ -56,7 +56,7 @@ sudo make install
 cd ..
 
 # Python Module for neovim
-pip3 install neovim
+sudo pip3 install -g neovim
 
 # Clone my dotfiles and copy over the neovim configs
 git clone https://github.com/Slackd/dotfiles.git
@@ -69,16 +69,14 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
 
 # Check installation
 
-clear
-echo 'Installed Successfully. Please start with "nvim" and then wait for modules to install...'
-sleep 5
-clear
-
 echo "Checking Installation:"
 echo "Build Files have been preserved, for future use."
 nvim -v
 node -v
 npm -v
+sleep 5
+clear
+echo 'Installed Successfully. Please start with "nvim" and then wait for modules to install...'
 
 # Clear Screen Output
 sleep 5

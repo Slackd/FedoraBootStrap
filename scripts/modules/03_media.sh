@@ -2,7 +2,7 @@
 
 # Basic Terminal Programs
 sudo dnf install git curl wget aria2 -y
-sudo dnf install zsh neofetch cowsay htop xclip fortune-mod cmatrix -y
+sudo dnf install zsh lsd neofetch figlet ranger cowsay htop xclip fortune-mod cmatrix -y
 
 # Media Codecs
 # Ref : https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/
@@ -13,8 +13,9 @@ sudo dnf group upgrade --with-optional Multimedia -y
 # Compression & De-compression Libraries, ffmpeg and media
 sudo dnf install unrar unace unzip p7zip vlc smplayer discord ffmpeg -y
 
-# Brave Browser and Code 
+# Brave Browser and Visual Studio Code 
 sudo dnf install brave-browser code -y
 
 # Clear Screen Output
+sleep 5
 clear

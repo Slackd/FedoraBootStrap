@@ -1,7 +1,12 @@
 #!/bin/bash
 
 sudo dnf update -y
-sudo dnf group install "Security Lab" -yy
+
+# Sec Lab disabled by default as this has too many packages which are not needed.
+# Need to hand select the packages later
+
+#sudo dnf group install "Security Lab" -y
+
 sudo dnf install hydra hydra-frontend gobuster hashcat scalpel foremost steghide whois aircrack-ng traceroute wireshark nmap -y
 
 mkdir -p /home/sam/SecTools
