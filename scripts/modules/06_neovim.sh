@@ -9,33 +9,44 @@
 
 # Current Version : V1
 
+# Note
+    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
+    # intellisense, then please comment out line 17 or 30.
+    # Use Nodesource onyl for the latest version of the nodejs.
+    # This is sub-optimal for production / full stability.
+    # Would suggest to use NVM for managing various node versions.
+
 # Check for which OS is running
 # If Fedora is detected. Commands to follow:
 
 if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then 
-    echo "You're Running Fedora"
+    echo "You're Running Fedora!"
+    echo "Installing Build Dependencies..."
+    echo " "
+    sleep 2
 
     # Build prerequisites
     sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
-    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
-    # intellisense, then please comment out this line.
     curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -
     sudo dnf install nodejs -y
 fi
 
 if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Ubuntu' ]]; then 
     echo "You're Running Ubuntu"
-
+    echo "Installing Build Dependencies..."
+    echo " "
+    sleep 2
+ 
     # Build prerequisites
     sudo apt install install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip -y
 
-    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
-    # intellisense, then please comment out this line.
     curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
     sudo apt install nodejs -y
 fi
 
+# Basic Username Check
+read -p "Please enter your user name: " username
 
 # Get sources
 mkdir neo_tmp && cd neo_tmp
@@ -60,7 +71,7 @@ sudo pip3 install -g neovim
 
 # Clone my dotfiles and copy over the neovim configs
 git clone https://github.com/Slackd/dotfiles.git
-cp -rf dotfiles/nvim /home/sam/.config/
+cp -rf dotfiles/nvim /home/$username/.config/
 cd ..
 
 # Install vim-plug and set up the directories
