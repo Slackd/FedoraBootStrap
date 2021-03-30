@@ -11,7 +11,7 @@ Scripts like Themes and Fonts have defaults pre-defined per my preferences. Plea
 
 I have added user choices wherever there is a requirement (Neovim and Fonts).
 
-The source files which are downloaded, during installation are kept as is. However, choosing option does a total clean up of the sources.
+The source files which are downloaded during installation are kept as is. However, choosing option 10 does a total clean up of the sources.
 
 #### Installation
 
