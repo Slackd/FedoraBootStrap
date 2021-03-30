@@ -47,5 +47,9 @@ The source files which are downloaded during installation are kept as is. Howeve
 
 ##### TODO
 [] Write Custom Kernel Compilation Guide.
+
 [] Add some more packages in media.
+
 [] Check complete compatibility with F34 when released (Works now. Do NOT use the neovim script. Nodesource is not updated with F34 Repos).
+
+
