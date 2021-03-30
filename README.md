@@ -37,6 +37,8 @@ The source files which are downloaded during installation are kept as is. Howeve
 
 1) For FaceTimeHD Camera (Read Instructions >) - https://github.com/patjak/bcwc_pcie/wiki/Installation#get-started-on-fedora
 
+- Or Run the `facetime.sh` script in my cloned scripts folder.
+
 2) For Broadcom WiFi
 
 - Stock Kernel - `sudo dnf install broadcom-wl -y`
