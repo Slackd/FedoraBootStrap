@@ -46,10 +46,10 @@ The source files which are downloaded during installation are kept as is. Howeve
 - Custom Kernels - https://github.com/antoineco/broadcom-wl
 
 ##### TODO
-[] Write Custom Kernel Compilation Guide.
+[  ] Write Custom Kernel Compilation Guide.
 
-[] Add some more packages in media.
+[  ] Add some more packages in media.
 
-[] Check complete compatibility with F34 when released (Works now. Do NOT use the neovim script. Nodesource is not updated with F34 Repos).
+[  ] Check complete compatibility with F34 when released (Works now. Do NOT use the neovim script. Nodesource is not updated with F34 Repos).
 
 
