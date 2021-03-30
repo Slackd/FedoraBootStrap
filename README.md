@@ -7,6 +7,12 @@ The collections of scripts are for the ease of installation of Fedora when you i
 
 The scripts are intentionally kept in a totally modular way, to customize the type of install.
 
+Scripts like Themes and Fonts have defaults pre-defined per my preferences. Please feel free to edit as per taste.
+
+I have added user choices wherever there is a requirement (Neovim and Fonts).
+
+The source files which are downloaded are kept as is, if run the modular scripts, however, option 10 does a total clean-up.
+
 #### Installation
 
 > `git clone https://github.com/Slackd/Fedora_Linux_Scripts.git FedoraInstaller`
