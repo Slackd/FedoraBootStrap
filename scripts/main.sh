@@ -53,6 +53,7 @@ if [[ $choice -eq 2 ]] && [[ -f "${base_devel}" ]]; then
     clear
     echo "===== Installing Development Packages ====="
     ./"${base_devel}"
+    ./main.sh
 fi
 
 #####################
@@ -62,6 +63,7 @@ if [[ $choice -eq 3 ]] && [[ -f "${media}" ]]; then
     clear
     echo "===== Installing Multimedia Packages ====="
     ./"${media}"
+    ./main.sh
 fi
 
 ##################
@@ -71,6 +73,7 @@ if [[ $choice -eq 4 ]] && [[ -f "${flatpack_mod}" ]]; then
     clear
     echo "===== Installing Flatpack Packages from Flathub ====="
     ./"${flatpack_mod}"
+    ./main.sh
 fi
 
 ###################
@@ -80,6 +83,7 @@ if [[ $choice -eq 5 ]] && [[ -f "${pentools}" ]]; then
     clear
     echo "===== Installing Pen Testing CTF Tools & Packages ====="
     ./"${pentools}"
+    ./main.sh
 fi
 
 #################
@@ -89,6 +93,7 @@ if [[ $choice -eq 6 ]] && [[ -f "${neovim}" ]]; then
     clear
     echo "===== Installing Neovim & Sams Dots from Git ====="
     ./"${neovim}"
+    ./main.sh
 fi
 
 ################
@@ -98,6 +103,7 @@ if [[ $choice -eq 7 ]] && [[ -f "${fonts}" ]]; then
     clear
     echo "===== Installing Fonts from Git & Nerd ====="
     ./"${fonts}"
+    ./main.sh
 fi
 
 #################
@@ -107,6 +113,7 @@ if [[ $choice -eq 8 ]] && [[ -f "${themes}" ]]; then
     clear
     echo "===== Installing GTK Themes and Icon Sets ====="
     ./"${themes}"
+    ./main.sh
 fi
 
 ########################

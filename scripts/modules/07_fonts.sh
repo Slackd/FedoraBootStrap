@@ -4,7 +4,7 @@
 mkdir -p font_tmp && cd font_tmp
 
 # Download from Wget List
-wget -i ../../assets/fonts.txt
+wget -i ../assets/fonts.txt
 
 # Local Directory of Fonts
 mkdir -p /home/sam/.local/share/fonts
