@@ -10,8 +10,10 @@ read -p "Please enter your user name: " username
 
 # sudo dnf group install "Security Lab" -y
 # sudo dnf remove security-menus -y
+# Customized install is preferred. Line 16.
 
 sudo dnf install hydra hydra-frontend gobuster hashcat scalpel foremost steghide whois aircrack-ng traceroute wireshark nmap -y
+sudo dnf install aircrack-ng chkrootkit ddrescue gparted hexedit hfsutils mutt nikto powertop wireshark wireshark-cli binwalk inxi p7zip-plugins ruby vim-common wireless-tools texlive rubygems lm_sensors lm_sensors-libs openssl zziplib hddtemp cabextract -y
 
 mkdir -p /home/$username/SecTools
 mkdir -p /home/$username/SecTools/wordlists
