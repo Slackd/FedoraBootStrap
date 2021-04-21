@@ -69,14 +69,8 @@ cd ..
 # Python Module for neovim
 sudo pip3 install -g neovim
 
-# Clone my dotfiles and copy over the neovim configs
-git clone https://github.com/Slackd/dotfiles.git
-cp -rf dotfiles/nvim /home/$username/.config/
-cd ..
-
-# Install vim-plug and set up the directories
-sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+# Install Lunar Vim from Git. This is very close to what I use anyways.
+bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 
 # Check installation
 
