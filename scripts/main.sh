@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This is a complete system setup script for Fedora 
 # as I would set it up on bare metal setup.
