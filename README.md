@@ -15,12 +15,13 @@ The source files which are downloaded during installation are kept as is. Howeve
 
 #### Installation
 
-> `git clone https://github.com/Slackd/Fedora_Linux_Scripts.git FedoraInstaller`
-> 
-> `cd FedoraInstaller/scripts`
-> 
-> `./main.sh` `# Choose options from 1-10 on which set of packages you want to install.`
-> 
+```
+git clone https://github.com/Slackd/Fedora_Linux_Scripts.git FedoraInstaller`
+cd FedoraInstaller/scripts`
+```
+
+#### Choose options from 1-10 on which set of packages you want to install.
+```./main.sh```
 
 #### Macbook Specific Drivers for Custom Kernels (Facetime HD & Broadcom-WiFi)
 
@@ -46,10 +47,10 @@ The source files which are downloaded during installation are kept as is. Howeve
 - Custom Kernels - https://github.com/antoineco/broadcom-wl
 
 ##### TODO
-[  ] Write Custom Kernel Compilation Guide.
+[*] Write Custom Kernel Compilation Guide.
 
-[  ] Add some more packages in media.
+[ ] Add some more packages in media.
 
-[  ] Check complete compatibility with F34 when released (Works now. Do NOT use the neovim script. Nodesource is not updated with F34 Repos).
+[ ] Check complete compatibility with F34 when released (Works now. Do NOT use the neovim script. Nodesource is not updated with F34 Repos).
 
 
