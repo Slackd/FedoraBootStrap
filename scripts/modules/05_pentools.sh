@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo dnf update -y
+sudo dnf update --refresh -y
 
 # Basic check for username
 read -p "Please enter your user name: " username

@@ -2,7 +2,7 @@
 
 # Basic Terminal Programs
 sudo dnf install git curl wget aria2 -y
-sudo dnf install zsh lsd neofetch figlet ranger cowsay htop xclip fortune-mod cmatrix -y
+sudo dnf install zsh exa neofetch figlet ranger cowsay htop xclip fortune-mod cmatrix -y
 
 # Media Codecs
 # Ref : https://docs.fedoraproject.org/en-US/quick-docs/assembly_installing-plugins-for-playing-movies-and-music/

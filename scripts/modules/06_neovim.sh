@@ -28,7 +28,7 @@ if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then
     # Build prerequisites
     sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
-    curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash -
+    # curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash - # No longer needed in FC34. If you're using an older version, please uncomment this line
     sudo dnf install nodejs -y
 fi
 
@@ -52,7 +52,6 @@ read -p "Please enter your user name: " username
 mkdir neo_tmp && cd neo_tmp
 git clone https://github.com/neovim/neovim
 cd neovim
-
 
 # Building 
 # Refer to the build guide for more details on what to choose.

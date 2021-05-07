@@ -22,6 +22,7 @@ unzip Iosevka.zip
 unzip JetBrainsMono.zip
 unzip UbuntuMono.zip
 unzip 'Inter-3.15.zip'
+unzip CascadiaCode-2102.25.zip
 
 find . -type f \( -name "*.ttf" -o -name "*.otf" \) | xargs -I '{}' mv -f {} /home/$username/.local/share/fonts
 cd .. && rm -rf tmp
