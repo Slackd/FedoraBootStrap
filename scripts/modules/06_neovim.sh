@@ -19,6 +19,10 @@
 # Check for which OS is running
 # If Fedora is detected. Commands to follow:
 
+# NodeJS via the nvm installer 
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+nvm install node
+
 if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then 
     echo "You're Running Fedora!"
     echo "Installing Build Dependencies..."
@@ -28,8 +32,6 @@ if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then
     # Build prerequisites
     sudo dnf install ninja-build libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch -y
 
-    # curl -fsSL https://rpm.nodesource.com/setup_current.x | sudo bash - # No longer needed in FC34. If you're using an older version, please uncomment this line
-    sudo dnf install nodejs -y
 fi
 
 if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Ubuntu' ]]; then 
@@ -41,8 +43,6 @@ if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Ubuntu' ]]; then
     # Build prerequisites
     sudo apt install install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip -y
 
-    curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
-    sudo apt install nodejs -y
 fi
 
 # Basic Username Check

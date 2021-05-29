@@ -19,7 +19,7 @@ sudo dnf group install "C Development Tools and Libraries" -y
 
 # Base and Devel Packages
 sudo dnf install ninja-build flex bison libtool autoconf automake cmake gcc gcc-c++ make pkgconfig unzip patch dwarves ncurses ncurses-devel -y
-sudo dnf install git make gcc openssl-devel yasm gmp-devel libpcap-devel libsqlite3x-devel bzip2-devel -y
+sudo dnf install git make gcc most openssl-devel yasm gmp-devel libpcap-devel libsqlite3x-devel bzip2-devel -y
 
 # Clear Screen
 sleep 5
