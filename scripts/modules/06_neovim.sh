@@ -74,7 +74,7 @@ npm install -g neovim
 npm install -g tree-sitter-cli
 
 # Install Lunar Vim from Git. This is very close to what I use anyways.
-bash <(curl -s https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
+# Use this link >> https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 
 # Check installation
 
