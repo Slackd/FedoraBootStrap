@@ -66,15 +66,15 @@ sudo make install
 cd ..
 
 # Python Module for neovim
-sudo pip3 install -g neovim
-pip3 install pynvim --user
+pip3 install neovim
+pip3 install pynvim
 
 # Node Module for neovim
 npm install -g neovim
 npm install -g tree-sitter-cli
 
 # Install Lunar Vim from Git. This is very close to what I use anyways.
-# Use this link >> https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
+# >> https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
 
 # Check installation
 

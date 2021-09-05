@@ -14,7 +14,7 @@ sudo dnf group upgrade --with-optional Multimedia -y
 sudo dnf install unrar unace unzip p7zip vlc smplayer discord ffmpeg -y
 
 # Brave Browser and Visual Studio Code 
-sudo dnf install brave-browser code -y
+sudo dnf install code -y
 
 # Clear Screen Output
 sleep 5
