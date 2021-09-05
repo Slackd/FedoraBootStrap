@@ -26,6 +26,8 @@ unzip CascadiaCode-2102.25.zip
 
 find . -type f \( -name "*.ttf" -o -name "*.otf" \) | xargs -I '{}' mv -f {} /home/$username/.local/share/fonts
 cd .. && rm -rf tmp
+
+sudo dnf install google-carlito-fonts.noarch google-tinos-fonts.noarch google-cousine-fonts.noarch google-noto-emoji-color-fonts.noarch google-arimo-fonts.noarch google-rubik-fonts.noarch -y
 fc-cache -fv
 
 # Clear Screen Output
