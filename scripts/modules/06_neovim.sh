@@ -9,12 +9,8 @@
 
 # Current Version : V1
 
-# Note
-    # NodeJS Build Deps (Optional - This is required my COC). If you are not interested in
-    # intellisense, then please comment out line 17 or 30.
-    # Use Nodesource onyl for the latest version of the nodejs.
-    # This is sub-optimal for production / full stability.
-    # Would suggest to use NVM for managing various node versions.
+# Notes   
+# - Would suggest to use NVM for managing various node versions.
 
 # Check for which OS is running
 # If Fedora is detected. Commands to follow:
