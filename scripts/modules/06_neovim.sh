@@ -1,8 +1,6 @@
 #!/bin/bash
 
 # Referred from - https://github.com/neovim/neovim/wiki/Building-Neovim
-# NodeJS and NPM latest versions are required for CoC. These are not available in the default
-# repos. Therefore we are getting the packages from : https://github.com/nodesource/distributions
 # V0 - Initial Launch which supports Fedora.
 # V1 - Implement distro check. Currently support only Ubuntu and Fedora.
 # V2 - TODO - Other distros and maybe install the vim plug sets automatically.
@@ -13,10 +11,10 @@
 # - Would suggest to use NVM for managing various node versions.
 
 # Check for which OS is running
-# If Fedora is detected. Commands to follow:
 
 # NodeJS via the nvm installer 
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+source ~/.bashrc
 nvm install node
 
 if [[ $(cat /etc/os-release | head -1 | cut -d "=" -f 2) == 'Fedora' ]]; then 
@@ -69,8 +67,9 @@ pip3 install pynvim
 npm install -g neovim
 npm install -g tree-sitter-cli
 
-# Install Lunar Vim from Git. This is very close to what I use anyways.
-# >> https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh)
+# Two Options to use configs from:
+# 1>> https://raw.githubusercontent.com/ChristianChiarulli/lunarvim/master/utils/installer/install.sh
+# 2>> git clone https://github.com/NvChad/NvChad ~/.config/nvim && nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 # Check installation
 
