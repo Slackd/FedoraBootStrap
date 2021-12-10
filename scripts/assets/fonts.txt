@@ -6,5 +6,7 @@ https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Inconsolata.zip
 https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Iosevka.zip
 https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/UbuntuMono.zip
+https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip
+https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FantasqueSansMono.zip
 https://github.com/rsms/inter/releases/download/v3.15/Inter-3.15.zip
 https://github.com/microsoft/cascadia-code/releases/download/v2102.25/CascadiaCode-2102.25.zip

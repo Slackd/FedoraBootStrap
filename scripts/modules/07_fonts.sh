@@ -21,6 +21,8 @@ unzip Inconsolata.zip
 unzip Iosevka.zip
 unzip JetBrainsMono.zip
 unzip UbuntuMono.zip
+unzip SourceCodePro.zip
+unzip FantasqueSansMono.zip
 unzip 'Inter-3.15.zip'
 unzip CascadiaCode-2102.25.zip
 
