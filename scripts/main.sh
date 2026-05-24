@@ -1,143 +1,94 @@
 #!/usr/bin/env bash
+# ------------------------------------------------------------------------------
+# Fedora 44 Bootstrap — interactive installer
+# Copyright (c) Budhaditya Saha, 2021–2026
+#
+# V0 — interactive, non-unattended
+# V1 — offer choices
+# V2 — modular
+# V3 — Fedora 44 / dnf5 refresh; AMD/RDNA4; modernized stack (2026)
+# ------------------------------------------------------------------------------
 
-# This is a complete system setup script for Fedora 
-# as I would set it up on bare metal setup.
-# Copyright (c) Budhaditya Saha, 2021
+set -uo pipefail
 
-# V0 - Script is interactive and not unattended.
-# V1 - Offer Choices
-# V2 - Make Modular with choices
+# Resolve script directory so the menu can be launched from anywhere.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+MODULES="${SCRIPT_DIR}/modules"
 
-# Current Version : V2
-#####################################################
-
-# Declare Current Modules as variables
-update=modules/01_update.sh
-base_devel=modules/02_base_devel.sh
-media=modules/03_media.sh
-flatpack_mod=modules/04_flatpak.sh
-pentools=modules/05_pentools.sh
-neovim=modules/06_neovim.sh
-fonts=modules/07_fonts.sh
-themes=modules/08_themes.sh
-
-# Offer Choices based on modules.
-echo "1) Perform Systemwide Update: "
-echo "2) Install Development Packages: "
-echo "3) Install Multimedia Packages: "
-echo "4) Enable Flathub & Install Packages: "
-echo "5) Install Pen-testing Tools: "
-echo "6) Install Neovim from Git: "
-echo "7) Intall Fonts: "
-echo "8) Install Themes & Icons: "
-echo "9) All Packages / Run All Scripts: "
-echo " "
-echo "10) Clean and Exit: "
-echo " "
- 
-read -p "Enter Which Phase you want to Install: " choice
-
-##################
-# Updates Module #
-##################
-if [[ $choice -eq 1 ]] && [[ -f "${update}" ]]; then
-    clear
-    echo "===== Installing Updates ====="
-    ./"${update}"
+# Sanity check: Fedora only.
+if ! grep -q '^ID=fedora' /etc/os-release 2>/dev/null; then
+    echo "This bootstrap targets Fedora. Aborting." >&2
+    exit 1
 fi
 
-#####################
-# Develpment Module #
-#####################
-if [[ $choice -eq 2 ]] && [[ -f "${base_devel}" ]]; then
-    clear
-    echo "===== Installing Development Packages ====="
-    ./"${base_devel}"
-    ./main.sh
-fi
+# Keep sudo alive for the duration of a module run so prompts don't surprise us.
+keep_sudo_alive() {
+    sudo -v || exit 1
+    ( while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done ) 2>/dev/null &
+}
 
-#####################
-# Multimedia Module #
-#####################
-if [[ $choice -eq 3 ]] && [[ -f "${media}" ]]; then
-    clear
-    echo "===== Installing Multimedia Packages ====="
-    ./"${media}"
-    ./main.sh
-fi
+run_module() {
+    local name="$1"
+    local path="${MODULES}/${name}"
+    if [[ ! -f "$path" ]]; then
+        echo "Module not found: $path" >&2
+        return 1
+    fi
+    echo
+    echo "===== Running: ${name} ====="
+    bash "$path"
+    local rc=$?
+    if [[ $rc -ne 0 ]]; then
+        echo "WARN: ${name} exited with status ${rc}" >&2
+    fi
+    return $rc
+}
 
-##################
-# Flatpak Module #
-##################
-if [[ $choice -eq 4 ]] && [[ -f "${flatpack_mod}" ]]; then
-    clear
-    echo "===== Installing Flatpack Packages from Flathub ====="
-    ./"${flatpack_mod}"
-    ./main.sh
-fi
+print_menu() {
+    cat <<'EOF'
 
-###################
-# PenTools Module #
-###################
-if [[ $choice -eq 5 ]] && [[ -f "${pentools}" ]]; then
-    clear
-    echo "===== Installing Pen Testing CTF Tools & Packages ====="
-    ./"${pentools}"
-    ./main.sh
-fi
+╔══════════════════════════════════════════════════════════╗
+║          Fedora 44 Bootstrap — Module Selector           ║
+╠══════════════════════════════════════════════════════════╣
+║  1) System Update + Enable RPM Fusion                    ║
+║  2) Development Toolchain (gcc/meson/ninja/rust/zig)     ║
+║  3) Terminal & CLI Utilities (eza/bat/ripgrep/...)       ║
+║  4) Multimedia Codecs & Players                          ║
+║  5) AMD Graphics (RDNA4) + Gaming Stack                  ║
+║  6) Fonts (Nerd, Noto, Roboto, Inter, GSF, mac)          ║
+║  7) Themes & Icons (Tela, Papirus, WhiteSur)             ║
+║                                                          ║
+║  9) Run ALL modules in order                             ║
+║  0) Quit                                                 ║
+╚══════════════════════════════════════════════════════════╝
+EOF
+}
 
-#################
-# Neovim Module #
-#################
-if [[ $choice -eq 6 ]] && [[ -f "${neovim}" ]]; then
-    clear
-    echo "===== Installing Neovim & Sams Dots from Git ====="
-    ./"${neovim}"
-    ./main.sh
-fi
+run_all() {
+    run_module 01_update.sh       || true
+    run_module 02_devel.sh        || true
+    run_module 03_terminal.sh     || true
+    run_module 04_media.sh        || true
+    run_module 05_amd_gaming.sh   || true
+    run_module 06_fonts.sh        || true
+    run_module 07_themes.sh       || true
+}
 
-################
-# Fonts Module #
-################
-if [[ $choice -eq 7 ]] && [[ -f "${fonts}" ]]; then
-    clear
-    echo "===== Installing Fonts from Git & Nerd ====="
-    ./"${fonts}"
-    ./main.sh
-fi
+keep_sudo_alive
 
-#################
-# Themes Module #
-#################
-if [[ $choice -eq 8 ]] && [[ -f "${themes}" ]]; then
-    clear
-    echo "===== Installing GTK Themes and Icon Sets ====="
-    ./"${themes}"
-    ./main.sh
-fi
-
-########################
-# Install Every Module #
-########################
-
-if [[ $choice -eq 9 ]]; then
-    clear
-    echo "===== Installing All the Modules ====="
-    ./"${base_devel}"
-    ./"${media}"
-    ./"${flatpack_mod}"
-    ./"${pentools}"
-    ./"${neovim}"
-    ./"${fonts}"
-    ./"${themes}"
-fi
-
-# Quit Program #
-if [[ $choice -eq 10 ]]; then
-    clear
-    rm -rf modules/neo_tmp
-    rm -rf modules/font_tmp
-    clear
-    echo "Thanks! Bye..!"
-    exit
-fi
+while true; do
+    print_menu
+    read -rp "Select an option: " choice
+    case "${choice}" in
+        1) run_module 01_update.sh       ;;
+        2) run_module 02_devel.sh        ;;
+        3) run_module 03_terminal.sh     ;;
+        4) run_module 04_media.sh        ;;
+        5) run_module 05_amd_gaming.sh   ;;
+        6) run_module 06_fonts.sh        ;;
+        7) run_module 07_themes.sh       ;;
+        9) run_all                       ;;
+        0|q|Q) echo "Done. Reboot is recommended after changes." ; exit 0 ;;
+        *) echo "Invalid option: ${choice}" ;;
+    esac
+done
